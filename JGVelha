@@ -1,0 +1,259 @@
+#include <stdio.h>
+
+int main()
+{
+	int mat[3][3];
+	int cont = 11;
+	int pos = 0;
+	int JGD = 0;
+	int jogador1 = 0, jogador2 = 0;
+
+	for(int i = 0; i < 3; i++)
+	{
+		for(int j = 0; j < 3; j++)
+		{
+			mat[i][j] = cont;
+			cont++;
+		}
+	}
+
+	cont = 1;
+	int t = 1;
+
+	printf("1|2|3\n");
+	printf("4|5|6\n");
+	printf("7|8|9\n");
+
+	while(t == 1)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			for(int j = 0; j < 3; j++)
+			{
+				if(mat[i][j] != 1 || mat[i][j] != 2)
+				{
+					printf("  ");
+				}
+				if(mat[i][j] == 1)
+				{
+					printf("X");
+				}
+				if(mat[i][j] == 2)
+				{
+					printf("O");
+				}
+			}
+			printf("\n");
+		}
+
+		if(cont % 2 != 0)
+		{
+			JGD = 1;
+		}
+		else
+		{
+			JGD = 2;
+		}
+
+		printf("Jogador Escolha: %ls", &JGD);
+		printf("\n");
+		scanf("%d", &pos);
+
+		if(pos == 1) {
+			mat[0][0] = JGD;
+		}
+		if(pos == 2) {
+			mat[0][1] = JGD;
+		}
+		if(pos == 3) {
+			mat[0][2] = JGD;
+		}
+		if(pos == 4) {
+			mat[1][0] = JGD;
+		}
+		if(pos == 5) {
+			mat[1][1] = JGD;
+		}
+		if(pos == 6) {
+			mat[1][2] = JGD;
+		}
+		if(pos == 7) {
+			mat[2][0] = JGD;
+		}
+		if(pos == 8) {
+			mat[2][1] = JGD;
+		}
+		if(pos == 9) {
+			mat[2][2] = JGD;
+		}
+
+		if(mat[0][0] == mat[0][1] && mat[0][0] == mat[0][2])
+		{
+			if(mat[0][0] == 1) {
+				jogador1++;
+			}
+			else {
+				jogador2++;
+			}
+		}
+
+		if(mat[1][0] == mat[1][1] && mat[1][0] == mat[1][2])
+		{
+			if(mat[1][0] == 1) {
+				jogador1++;
+			}
+			else {
+				jogador2++;
+			}
+		}
+
+		if(mat[2][0] == mat[2][1] && mat[2][0] == mat[2][2])
+		{
+			if(mat[2][0] == 1) {
+				jogador1++;
+			}
+			else {
+				jogador2++;
+			}
+		}
+
+		if(mat[0][0] == mat[1][0] && mat[0][0] == mat[2][0])
+		{
+			if(mat[0][0] == 1) {
+				jogador1++;
+			}
+			else {
+				jogador2++;
+			}
+		}
+
+		if(mat[0][1] == mat[1][1] && mat[0][1] == mat[2][1])
+		{
+			if(mat[0][1] == 1) {
+				jogador1++;
+			}
+			else {
+				jogador2++;
+			}
+		}
+
+		if(mat[0][2] == mat[1][2] && mat[0][2] == mat[2][2])
+		{
+			if(mat[0][2] == 1) {
+				jogador1++;
+			}
+			else {
+				jogador2++;
+			}
+		}
+
+		if(mat[0][0] == mat[1][1] && mat[0][0] == mat[2][2])
+		{
+			if(mat[0][0] == 1) {
+				jogador1++;
+			}
+			else {
+				jogador2++;
+			}
+		}
+
+		if(mat[0][2] == mat[1][1] && mat[0][2] == mat[2][0])
+		{
+			if(mat[0][2] == 1) {
+				jogador1++;
+			}
+			else {
+				jogador2++;
+			}
+		}
+
+		cont++;
+		if(cont > 9) {
+			t = 0;
+		}
+		if(jogador1 == 1) {
+			t = 0;
+		}
+		if(jogador2 == 1) {
+			t = 0;
+		}
+	}
+
+	if(jogador1 == 1)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			for(int j = 0; j < 3; j++)
+			{
+				if(mat[i][j] != 1 || mat[i][j] != 2)
+				{
+					printf("  ");
+				}
+				if(mat[i][j] == 1)
+				{
+					printf("X");
+				}
+				if(mat[i][j] == 2)
+				{
+					printf("O");
+				}
+			}
+			printf("\n");
+		}
+		printf("Jogador 1 venceu!!\n");
+	}
+	else
+	{
+		if(jogador2 == 1)
+		{
+			for(int i = 0; i < 3; i++)
+			{
+				for(int j = 0; j < 3; j++)
+				{
+					if(mat[i][j] != 1 || mat[i][j] != 2)
+					{
+						printf("  ");
+					}
+					if(mat[i][j] == 1)
+					{
+						printf("X");
+					}
+					if(mat[i][j] == 2)
+					{
+						printf("O");
+					}
+				}
+				printf("\n");
+			}
+			printf("Jogador 2 venceu!!\n");
+		}
+		else
+		{
+			if(cont == 10)
+			{
+				for(int i = 0; i < 3; i++)
+				{
+					for(int j = 0; j < 3; j++)
+					{
+						if(mat[i][j] != 1 || mat[i][j] != 2)
+						{
+							printf("  ");
+						}
+						if(mat[i][j] == 1)
+						{
+							printf("X");
+						}
+						if(mat[i][j] == 2)
+						{
+							printf("O");
+						}
+					}
+					printf("\n");
+				}
+				printf("Empate.\n");
+			}
+		}
+	}
+
+	return 0;
+}
